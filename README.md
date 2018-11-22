@@ -60,13 +60,22 @@ GoFinds is an app meant to be used for those moments where you are in a foreign 
 - GET /posts/:postid
   - reders posts details
 - POST /posts/:postid/remove
-  - redirect to /users/:userid/posts/:postid if user id is not the same as logged in
+  - redirect to /posts/:postid if user id is not the same as logged in
   - body:
     - empty
 - GET /posts/createpost
   - redirect to / if logged out
   - renders the createpost form
 - POST /posts/createpost
+  - redirect to / if logged out
+  - body:
+    - title
+    - description
+    - img
+- GET /posts/:postid/editpost
+  - redirect to / if logged out
+  - renders the editpost form
+- POST /posts/:postid/editpost
   - redirect to / if logged out
   - body:
     - title
