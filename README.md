@@ -54,21 +54,19 @@ GoFinds is an app meant to be used for those moments where you are in a foreign 
   - Body: empty
 - GET /users
   - renders the users list
-- GET /users/:userid/posts
+- GET /users/:userid
   - renders users posts
-- GET /users/:userid/posts/:postid
+- GET /posts/:postid
   - reders posts details
-- POST /users/:userid/posts/:postid/remove
+- POST /posts/:postid/remove
   - redirect to /users/:userid/posts/:postid if user id is not the same as logged in
   - body:
     - empty
-- GET /users/:id/createpost
+- GET /posts/createpost
   - redirect to / if logged out
-  - redirect to / if id is not the same as logged in
   - renders the createpost form
-- POST /users/:id/createpost
+- POST /posts/createpost
   - redirect to / if logged out
-  - redirect to / if id is not the same as logged in
   - body:
     - title
     - description
@@ -78,7 +76,6 @@ GoFinds is an app meant to be used for those moments where you are in a foreign 
 
 User Model
 ```
--ID
 -Username
   -type: string
   -required: true
@@ -86,7 +83,6 @@ User Model
 -Password
   -type: string
   -required: true
-  -unique: false
 ```
   
 Post Model
@@ -95,25 +91,30 @@ Post Model
 -Title
   type: string
   required: true
-  unique: false
 -Description
   type: string
-  required: false
-  unique: false
 -Image
   type: string
   required: true
-  unique: false
 -User ID owner
   type: string
   required: true
-  unique: false
 ```
 
 ## Links
 
+### Wire frame
+
+[Wireframe link](https://rb2xgr.axshare.com/#g=1&p=wireframes)
+
 ### Kanban
 
+[Kanban Link](https://drive.google.com/file/d/15ywGdLa5WJ4j7CFvKpGtPCQ-bx-wZO-j/view)
+
 ### Git
+
+[Repository Link](http://github.com)
+
+[Deploy Link](http://heroku.com)
 
 ### Slides
