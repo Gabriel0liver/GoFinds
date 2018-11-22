@@ -16,6 +16,7 @@ GoFinds is an app meant to be used for those moments where you are in a foreign 
 - **list of post** - As a user I want to see all the posts of a user so I can see where the user has been.
 - **post detail** - As a user I want to be able to see the details of a post so I can understand the context of the post.
 - **remove a post** - As a user I want to be able to remove a post so I can get rid of an unwanted post.
+- **edit a post** - As a user I want to be able to edit a post so I can change the post in case of a mistake or change of mind.
 
 ## Backlog
 
