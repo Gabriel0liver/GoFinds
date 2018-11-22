@@ -31,48 +31,48 @@ GoFinds is an app meant to be used for those moments where you are in a foreign 
 
 ## Rutes
 
--GET /
-  -render the homepage
--GET /auth/signup
-  -redirect to / if logged in
-  -reder signup(with flash msg)
--POST /auth/signup
-  -redirect to / if logged in
-  -Body:
-    -Username
-    -Password
--GET /auth/login 
-  -redirect to / if logged in
-  -reder login(with flash msg)
--POST /auth/login
-  -redirect to / if logged in
-  -Body:
-    -Username
-    -Password
--POST /auth/logout
-  -redirect to / if logged out
-  -Body: empty
--GET /users
-  -renders the users list
--GET /users/:userid/posts
-  -renders users posts
--GET /users/:userid/posts/:postid
-  -reders posts details
--POST /users/:userid/posts/:postid/remove
-  -redirect to /users/:userid/posts/:postid if user id is not the same as logged in
-  -body:
-    -empty
--GET /users/:id/createpost
-  -redirect to / if logged out
-  -redirect to / if id is not the same as logged in
-  -renders the createpost form
--POST /users/:id/createpost
-  -redirect to / if logged out
-  -redirect to / if id is not the same as logged in
-  -body:
-    -title
-    -description
-    -img
+- GET /
+  - render the homepage
+- GET /auth/signup
+  - redirect to / if logged in
+  - reder signup(with flash msg)
+- POST /auth/signup
+  - redirect to / if logged in
+  - Body:
+    - Username
+    - Password
+- GET /auth/login 
+  - redirect to / if logged in
+  - reder login(with flash msg)
+- POST /auth/login
+  - redirect to / if logged in
+  - Body:
+    - Username
+    - Password
+- POST /auth/logout
+  - redirect to / if logged out
+  - Body: empty
+- GET /users
+  - renders the users list
+- GET /users/:userid/posts
+  - renders users posts
+- GET /users/:userid/posts/:postid
+  - reders posts details
+- POST /users/:userid/posts/:postid/remove
+  - redirect to /users/:userid/posts/:postid if user id is not the same as logged in
+  - body:
+    - empty
+- GET /users/:id/createpost
+  - redirect to / if logged out
+  - redirect to / if id is not the same as logged in
+  - renders the createpost form
+- POST /users/:id/createpost
+  - redirect to / if logged out
+  - redirect to / if id is not the same as logged in
+  - body:
+    - title
+    - description
+    - img
 
 ## Models
 
