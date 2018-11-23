@@ -18,11 +18,7 @@ router.get('/create', authMiddleware.requireUser, (req, res, next) => {
   res.render('posts/new-post', data);
 });
 
-router.post('/create', authMiddleware.requireUser, formMiddleware.requireFieldsPost, parser.single('image'), (req, res, next) => {
-  if (req.fileValidationError) {
-    return;
-  }
-  console.log(req.file);
+router.post('/create', authMiddleware.requireUser, parser.single('image'), formMiddleware.requireFieldsPost, (req, res, next) => {
   const { title, description } = req.body;
 
   Post.create({
