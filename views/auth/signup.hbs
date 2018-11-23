@@ -1,21 +1,24 @@
-<h1>Sign up</h1>
+<p class="Sign-in-header">Sign up</p>
 
-<form method="POST" action="/auth/signup">
+<div class="from-sign-in">
+ 
+  <form method="POST" action="/auth/signup">
 
-  <div class="field" >
-    <label>Username</label>
-    <input type="text" name="username"/>
-  </div>
+    <div class="field" >
+      <label>Username</label>
+      <input type="text" name="username"/>
+    </div>
 
-  <div class="field" >
-    <label>Password</label>
-    <input type="password" name="password"/>
-  </div>
+    <div class="field" >
+      <label>Password</label>
+      <input type="password" name="password"/>
+    </div>
 
-  <div class="field submit">
-    <button type="submit">Sign up</button>
+    <div class="field-submit">
+      <button class="signup-button" type="submit">Sign up</button>
   </div>
 </form>
+</div>
 
 {{#if messages.length}}
 <ul class="flash">
