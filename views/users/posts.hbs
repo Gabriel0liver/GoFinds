@@ -1,0 +1,7 @@
+<h1>List of posts</h1>
+
+<ul>
+    {{#each posts}}
+        <li><a href="/post/{{this._id}}"><h1>{{this.title}}</h1></a></li>
+    {{/each}}
+</ul>

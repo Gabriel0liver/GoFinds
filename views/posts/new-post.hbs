@@ -1,0 +1,24 @@
+<h1>New post</h1>
+
+<form method="POST" action="/post/create">
+
+  <div class="field" >
+    <label>Title</label>
+    <input type="text" name="title"/>
+  </div>
+
+  <div class="field" >
+    <label>Description</label>
+    <textarea type="text" rows="5" cols="33" name="description"></textarea>
+  </div>
+
+  <div class="field submit">
+    <button type="submit">create post</button>
+  </div>
+</form>
+
+{{#if messages.length}}
+<ul class="flash">
+  {{#each messages}}<li>{{this}}</li>{{/each}}
+</ul>
+{{/if}}

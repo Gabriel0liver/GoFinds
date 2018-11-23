@@ -5,6 +5,25 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        {{#unless currentUser}}
+        <li><a href="/auth/signup">Sign up</a></li>
+        <li><a href="/auth/login">Log in</a></li>
+        {{else}}
+        <li><a href="/post/create">Create new post</a></li>
+        <li><a href="/users">List of users</a></li>
+        <li><a href="/users/{{currentUser._id}}">My posts</a></li>
+        <li>{{currentUser.username}}</li>
+        <li>
+          <form action="/auth/logout" method="POST">
+            <button type="submit">logout</button>
+          </form>
+        </li>
+        {{/unless}}
+      </ul>
+    </nav>
     {{{body}}}
   </body>
 </html>

@@ -1,0 +1,7 @@
+<h1>{{post.title}}</h1>
+<p>{{post.description}}</p>
+
+{{#if isOwner}}
+<a href="/post/{{post._id}}/edit">Edit</a>
+<form action="/post/{{post._id}}/remove" method="POST"><button type="submit">Remove post</button></form>
+{{/if}}
