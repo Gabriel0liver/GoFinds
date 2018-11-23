@@ -13,6 +13,10 @@ const postSchema = new Schema({
     type: String,
     required: true
   },
+  image_url: {
+    type: String,
+    required: true
+  },
   owner: {
     type: ObjectId,
     ref: 'User'
