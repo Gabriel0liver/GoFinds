@@ -1,29 +1,31 @@
-<h1>New post</h1>
+<div class="new-post">
 
 <form method="POST" action="/post/create" enctype="multipart/form-data">
-
-  <div class="field" >
+  <p class="new-post">New post</p>
+  <div class="field new-post-title" >
     <label>Title</label>
-    <input type="text" name="title"/>
+    <input class ="title-newpost-input" type="text" name="title"/>
   </div>
 
-  <div class="field" >
+  <div class="field description-block" >
     <label>Description</label>
-    <textarea type="text" rows="5" cols="33" name="description"></textarea>
+    <textarea class="description-area" type="text" rows="5" cols="33" name="description"></textarea>
   </div>
 
   <div class="field">
     <label>Image</label>
-    <input type='file' name='image' accept="image/*"/>
+    <input class="image-buton" type='file' name='image' accept="image/*"/>
   </div>
 
   <div class="field submit">
-    <button type="submit">create post</button>
+    <button class="signup-button" type="submit">create post</button>
   </div>
-</form>
 
-{{#if messages.length}}
+  {{#if messages.length}}
 <ul class="flash">
   {{#each messages}}<li>{{this}}</li>{{/each}}
 </ul>
 {{/if}}
+</form>
+</div>
+

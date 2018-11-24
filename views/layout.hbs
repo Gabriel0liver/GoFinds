@@ -3,22 +3,23 @@
   <head>
     <title>{{title}}</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,600i" rel="stylesheet">
   </head>
   <body>
     <nav>
-      <ul>
-        <li><a href="/">Home</a></li>
+      <ul class="nav-bar">
+        <li class="nav-li"><a href="/">Home</a></li>
         {{#unless currentUser}}
-        <li><a href="/auth/signup">Sign up</a></li>
-        <li><a href="/auth/login">Log in</a></li>
+        <li class="nav-li"><a href="/auth/signup">Sign up</a></li>
+        <li class="nav-li"><a href="/auth/login">Log in</a></li>
         {{else}}
-        <li><a href="/post/create">Create new post</a></li>
-        <li><a href="/users">List of users</a></li>
-        <li><a href="/users/{{currentUser._id}}">My posts</a></li>
-        <li>{{currentUser.username}}</li>
-        <li>
+        <li class="nav-li"><a href="/post/create">Create new post</a></li>
+        <li class="nav-li"><a href="/users">List of users</a></li>
+        <li class="nav-li"><a href="/users/{{currentUser._id}}">My posts</a></li>
+        <li class="nav-li">{{currentUser.username}}</li>
+        <li class="nav-li">
           <form action="/auth/logout" method="POST">
-            <button type="submit">logout</button>
+            <button class="logout-button" type="submit">logout</button>
           </form>
         </li>
         {{/unless}}
