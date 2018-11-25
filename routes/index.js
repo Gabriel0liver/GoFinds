@@ -6,8 +6,6 @@ const vision = require('@google-cloud/vision');
 const client = new vision.ImageAnnotatorClient();
 const parser = require('../helpers/file-upload');
 
-var querystring = require('querystring');
-
 router.get('/', (req, res, next) => {
   res.render('index');
 });
