@@ -56,6 +56,7 @@ app.use('/', indexRouter);
 app.use('/auth', authRouter);
 app.use('/users', usersRouter);
 app.use('/post', postRouter);
+// app.use('/landmark_info')
 
 // catch 404
 app.use((req, res, next) => {
