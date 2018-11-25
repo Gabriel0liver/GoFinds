@@ -19,13 +19,15 @@ router.get('', (req, res, next) => {
       .then((result) => {
         const page = result.query.pages;
         const pageId = Object.keys(page)[0];
-        const content = page[pageId].extract;
-        console.log(content);
+        content = page[pageId].extract;
+        res.render('display-info', { title, content });
       })
       .catch();
   };
+
   const title = req.query.title;
   let wikiTitle;
+  let content;
 
   const options1 = {
     method: 'GET',
@@ -40,8 +42,6 @@ router.get('', (req, res, next) => {
       getContent();
     })
     .catch();
-
-  res.render('display-info', { title });
 });
 
 module.exports = router;
