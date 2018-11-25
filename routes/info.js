@@ -9,17 +9,38 @@ const rp = require('request-promise');
 //
 
 router.get('', (req, res, next) => {
+  const getContent = () => {
+    const options2 = {
+      method: 'GET',
+      uri: 'https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=' + wikiTitle,
+      json: true
+    };
+    rp(options2)
+      .then((result) => {
+        const page = result.query.pages;
+        const pageId = Object.keys(page)[0];
+        const content = page[pageId].extract;
+        console.log(content);
+      })
+      .catch();
+  };
   const title = req.query.title;
-  const options = {
+  let wikiTitle;
+
+  const options1 = {
     method: 'GET',
-    uri: 'https://en.wikipedia.org/w/api.php?action=opensearch&format=json&search=sagradafamilia',
+    uri: 'https://en.wikipedia.org/w/api.php?action=opensearch&format=json&search=' + title,
     json: true
   };
-  rp(options)
+  console.log(options1.uri);
+  rp(options1)
     .then((result) => {
-      console.log(result[1][0]);
+      wikiTitle = result[1][0];
+      console.log(wikiTitle);
+      getContent();
     })
     .catch();
+
   res.render('display-info', { title });
 });
 
