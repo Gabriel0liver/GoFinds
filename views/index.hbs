@@ -1,13 +1,15 @@
-<h1>Please select and image</h1>
+<div class="home-page">
+<p class="home-page-header">Please select an image</p>
 
 <form method="POST" action="/" enctype="multipart/form-data">
 
-  <div class="field">
-    <label>Image</label>
-    <input type='file' name='image' accept="image/*"/>
+  <div class="field home-page-image">
+    {{!-- <label class="home-page-label">Image</label>  --}}
+    <input type='file' name='image' class="inputfile" accept="image/*"/>
   </div>
 
-  <div class="field submit">
-    <button type="submit">create post</button>
+  <div class="field-submit">
+    <button class="add-image-home" type="submit">upload</button>
   </div>
 </form>
+</div>
