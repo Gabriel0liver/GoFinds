@@ -39,8 +39,10 @@ p.sign-in-header{
 }
 
 p.new-post{
-  font-size: 60px;
+  font-size: 70px;
   font-weight: 500;
+  margin-top: 20%;
+  margin-bottom: 25%
 }
 
 p.home-page-header{
@@ -165,6 +167,11 @@ label{
   margin-right: 10px;
 }
 
+label.new-post-title{
+  margin-bottom: 5%;
+  font-size: 40px;
+}
+
 label.home-page-label{
   text-align: center;
 }
@@ -177,7 +184,9 @@ input{
 }
 
 input.title-newpost-input{
-  border-radius: 30px;
+  border: none;
+  border-bottom: 1px rgb(212,212,216);
+  font-size: 30px;
   
 }
 
@@ -189,7 +198,19 @@ textarea{
   border-radius: 30px;
 }
 
+textarea.description-area{
+  border: none;
+  font-size: 30px;
+}
 
+.image-buton::-webkit-file-upload-button{
+  font-size: 25px;
+  border-radius: 1000px;
+  border-color: #3A4454;
+  background-color: transparent;
+  color: #3A4454;
+  margin-top: 5%;
+}
 
   .inputfile::-webkit-file-upload-button {
     visibility: hidden;
@@ -268,6 +289,7 @@ div.description-block{
 
 div.new-post-title{
   display: inline-grid;
+  margin-bottom: 10%;
 }
 
 div.home-page{
@@ -286,4 +308,8 @@ div.field-submit{
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+div.add-photo-np{
+  margin-top: 10%
 }

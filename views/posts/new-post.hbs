@@ -3,21 +3,21 @@
 <form method="POST" action="/post/create" enctype="multipart/form-data">
   <p class="new-post">New post</p>
   <div class="field new-post-title" >
-    <label>Title</label>
-    <input class ="title-newpost-input" type="text" name="title"/>
-  </div>
+    <label class="new-post-title">Title</label>
+    <input class ="title-newpost-input" type="text" name="title" placeholder="your title"/>
+  </div>  
 
   <div class="field description-block" >
-    <label>Description</label>
-    <textarea class="description-area" type="text" rows="5" cols="33" name="description"></textarea>
+    <label class="new-post-title">Description</label>
+    <textarea class="description-area" type="text" rows="5" cols="33" name="description" placeholder="add a description..."></textarea>
   </div>
 
   <div class="field">
-    <label>Image</label>
+    <label class="new-post-title">Image</label>
     <input class="image-buton" type='file' name='image' accept="image/*"/>
   </div>
 
-  <div class="field submit">
+  <div class="field-submit add-photo-np">
     <button class="signup-button" type="submit">create post</button>
   </div>
 
