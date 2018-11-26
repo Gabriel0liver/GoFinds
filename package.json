@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@google-cloud/vision": "^0.23.0",
+    "axios": "^0.18.0",
     "bcrypt": "^3.0.2",
     "cloudinary": "^1.13.2",
     "connect-flash": "^0.1.1",

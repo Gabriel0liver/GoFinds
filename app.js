@@ -14,6 +14,7 @@ const authRouter = require('./routes/auth');
 const usersRouter = require('./routes/users');
 const postRouter = require('./routes/posts');
 const infoRouter = require('./routes/info');
+const getUsers = require('./routes/getUsers');
 
 const app = express();
 
@@ -58,6 +59,7 @@ app.use('/auth', authRouter);
 app.use('/users', usersRouter);
 app.use('/post', postRouter);
 app.use('/landmark_info', infoRouter);
+app.use('/getUsers', getUsers);
 
 // catch 404
 app.use((req, res, next) => {
