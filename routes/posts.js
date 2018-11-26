@@ -80,7 +80,7 @@ router.get('/:postId/edit', authMiddleware.requireUser, (req, res, next) => {
 
 router.post('/:postId/edit', authMiddleware.requireUser, (req, res, next) => {
   const postId = req.params.postId;
-  const { title, description } = req.body;
+  const { comment } = req.body;
   if (!ObjectId.isValid(postId)) {
     return next();
   }
@@ -89,7 +89,7 @@ router.post('/:postId/edit', authMiddleware.requireUser, (req, res, next) => {
       if (!result.owner.equals(req.session.currentUser._id)) {
         return res.redirect('/');
       }
-      Post.findByIdAndUpdate(postId, { $set: { title, description } })
+      Post.findByIdAndUpdate(postId, { $set: { comment } })
         .then((result) => {
           res.redirect('/');
         })

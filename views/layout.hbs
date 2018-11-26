@@ -8,18 +8,16 @@
   <body>
     <nav>
       <ul class="nav-bar">
-        <li class="nav-li"><a href="/">Home</a></li>
+        <li class="nav-li"><a href="/">Upload</a></li>
         {{#unless currentUser}}
         <li class="nav-li"><a href="/auth/signup">Sign up</a></li>
         <li class="nav-li"><a href="/auth/login">Log in</a></li>
         {{else}}
-        <li class="nav-li"><a href="/post/create">Create new post</a></li>
         <li class="nav-li"><a href="/users">List of users</a></li>
-        <li class="nav-li"><a href="/users/{{currentUser._id}}">My posts</a></li>
-        <li class="nav-li">{{currentUser.username}}</li>
+        <li class="nav-li"><a href="/users/{{currentUser._id}}">My history</a></li>
         <li class="nav-li">
           <form action="/auth/logout" method="POST">
-            <button class="logout-button" type="submit">logout</button>
+            <button class="logout-button" type="submit">Logout</button>
           </form>
         </li>
         {{/unless}}

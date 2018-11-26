@@ -1,19 +1,14 @@
-<h1>Edit post</h1>
+<h1>Edit comment</h1>
 
 <form method="POST" action="/post/{{post.id}}/edit">
 
   <div class="field" >
-    <label>Title</label>
-    <input type="text" name="title" value="{{post.title }}"/>
-  </div>
-
-  <div class="field" >
     <label>Description</label>
-    <textarea type="text" rows="5" cols="33" name="description">{{post.description}}</textarea>
+    <textarea type="text" rows="5" cols="33" name="comment">{{post.comment}}</textarea>
   </div>
 
   <div class="field submit">
-    <button type="submit">edit post</button>
+    <button type="submit">edit comment</button>
   </div>
 </form>
 
