@@ -11,6 +11,9 @@ const main = () => {
 
   const findUsers = (search) => {
     return users.filter(user => {
+      if (search === '') {
+        return null;
+      }
       return user.username.toLowerCase().includes(search);
     });
   };
@@ -20,8 +23,11 @@ const main = () => {
     const usersList = document.createElement('ul');
     usersFound.forEach(function (user) {
       const userListElement = document.createElement('li');
-      userListElement.innerText = user.username;
+      const userLinkElement = document.createElement('a');
+      userLinkElement.innerHTML = user.username;
+      userLinkElement.href = '/users/' + user._id;
       usersList.appendChild(userListElement);
+      userListElement.appendChild(userLinkElement);
     });
     searchResultsElement.appendChild(usersList);
   };
