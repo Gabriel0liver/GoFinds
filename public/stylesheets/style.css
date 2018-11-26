@@ -226,7 +226,7 @@ textarea.description-area{
  }
 
   .inputfile::before{
-    background: transparent;
+    background: white;
     color: #3A4454;
     padding: 0.8em 1.1em;
     border-radius: 60px;
