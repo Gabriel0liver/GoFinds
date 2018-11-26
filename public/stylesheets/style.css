@@ -237,6 +237,7 @@ textarea.description-area{
     transition: all 0.3s ease 0s;
     cursor: pointer;
     outline: none;
+    
   }
 
   .inputfile:hover::before{
