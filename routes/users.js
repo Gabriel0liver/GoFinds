@@ -9,7 +9,12 @@ const Post = require('../models/post');
 const ObjectId = require('mongoose').Types.ObjectId;
 /* GET home page. */
 router.get('/', (req, res, next) => {
-  res.render('users/list');
+  User.findById(req.session.currentUser._id)
+    .then(result => {
+      const friends = result.friends;
+      res.render('users/list', { friends });
+    })
+    .catch();
 });
 
 router.get('/:userId', (req, res, next) => {

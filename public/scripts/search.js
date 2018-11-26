@@ -24,10 +24,18 @@ const main = () => {
     usersFound.forEach(function (user) {
       const userListElement = document.createElement('li');
       const userLinkElement = document.createElement('a');
+      const addFriendForm = document.createElement('form');
+      const addFriendButton = document.createElement('button');
+      addFriendForm.setAttribute('method', 'POST');
+      addFriendForm.setAttribute('action', '/users/' + user._id + '/add_friend');
+      addFriendButton.setAttribute('type', 'submit');
+      addFriendButton.innerText = 'Add as friend';
       userLinkElement.innerHTML = user.username;
       userLinkElement.href = '/users/' + user._id;
       usersList.appendChild(userListElement);
       userListElement.appendChild(userLinkElement);
+      userListElement.appendChild(addFriendForm);
+      addFriendForm.appendChild(addFriendButton);
     });
     searchResultsElement.appendChild(usersList);
   };
