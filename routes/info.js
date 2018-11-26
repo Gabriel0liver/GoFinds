@@ -5,26 +5,8 @@ const router = express.Router();
 
 const rp = require('request-promise');
 
-// https://en.wikipedia.org/w/api.php?action=opensearch&format=json&search=sagradafamilia
-//
-
 router.get('', (req, res, next) => {
-  const getContent = () => {
-    const options2 = {
-      method: 'GET',
-      uri: 'https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=' + wikiTitle,
-      json: true
-    };
-    rp(options2)
-      .then((result) => {
-        const page = result.query.pages;
-        const pageId = Object.keys(page)[0];
-        content = page[pageId].extract;
-        res.render('display-info', { title, content });
-      })
-      .catch();
-  };
-
+  const imageUrl = req.query.image;
   const title = req.query.title;
   let wikiTitle;
   let content;
@@ -42,6 +24,23 @@ router.get('', (req, res, next) => {
       getContent();
     })
     .catch();
+
+  const getContent = () => {
+    const options2 = {
+      method: 'GET',
+      uri: 'https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=' + wikiTitle,
+      json: true
+    };
+    rp(options2)
+      .then((result) => {
+        const page = result.query.pages;
+        const pageId = Object.keys(page)[0];
+        content = page[pageId].extract;
+
+        res.render('display-info', { title, content, imageUrl });
+      })
+      .catch();
+  };
 });
 
 module.exports = router;

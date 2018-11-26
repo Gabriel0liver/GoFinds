@@ -6,8 +6,6 @@ const Post = require('../models/post');
 const authMiddleware = require('../middleware/authMiddleware');
 const formMiddleware = require('../middleware/formMiddleware');
 
-const parser = require('../helpers/file-upload');
-
 const ObjectId = require('mongoose').Types.ObjectId;
 
 /* GET home page. */
@@ -18,13 +16,14 @@ router.get('/create', authMiddleware.requireUser, (req, res, next) => {
   res.render('posts/new-post', data);
 });
 
-router.post('/create', authMiddleware.requireUser, parser.single('image'), formMiddleware.requireFieldsPost, (req, res, next) => {
-  const { title, description } = req.body;
+router.post('/create', authMiddleware.requireUser, formMiddleware.requireFieldsPost, (req, res, next) => {
+  const { title, description, comment, imageUrl } = req.body;
 
   Post.create({
     title,
     description,
-    image_url: req.file.url,
+    comment,
+    imageUrl,
     owner: req.session.currentUser._id
   }).then(() => {
     res.redirect('/');

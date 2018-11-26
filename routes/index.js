@@ -16,8 +16,27 @@ router.post('/', authMiddleware.requireUser, parser.single('image'), (req, res, 
     .landmarkDetection(req.file.url)
     .then(results => {
       let title = results[0].landmarkAnnotations[0].description;
+      console.log(title);
+      const arrayTitle = title.split('');
+      title = '';
+      for (let element of arrayTitle) {
+        let breakForEach = false;
+        switch (element) {
+        case '(':
+          breakForEach = true;
+          break;
+        case ',':
+          breakForEach = true;
+          break;
+        default:
+          title += element;
+        }
+        if (breakForEach) {
+          break;
+        }
+      };
       title = encodeURIComponent(title);
-      res.redirect('/landmark_info?title=' + title);
+      res.redirect('/landmark_info?title=' + title + '&image=' + req.file.url);
     })
     .catch(err => {
       console.error('ERROR:', err);

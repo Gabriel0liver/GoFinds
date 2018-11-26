@@ -13,7 +13,10 @@ const postSchema = new Schema({
     type: String,
     required: true
   },
-  image_url: {
+  comment: {
+    type: String
+  },
+  imageUrl: {
     type: String,
     required: true
   },
