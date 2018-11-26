@@ -14,11 +14,11 @@ const userSchema = new Schema({
     required: true
   },
   friends: {
-    type: Array,
-    userId: String
+    type: Array
   }
 });
 
 const User = mongoose.model('User', userSchema);
 
 module.exports = User;
+

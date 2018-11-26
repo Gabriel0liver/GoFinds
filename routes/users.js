@@ -19,23 +19,18 @@ router.get('/:userId', (req, res, next) => {
   }
   Post.find({ owner: userId })
     .then((result) => {
-      res.render('users/posts', { posts: result });
+      res.render('users/posts', { posts: result, userId });
     })
     .catch(next);
 });
 
-/* router.post('/:userId/add-friend', (req, res, next) => {
-  const { username, password,friend } = req.body;
-  User.update({ friend })
-  .then(() => {
-    User.upadate({
-      friend
+router.post('/:userId/add_friend', (req, res, next) => {
+  const friendId = req.params.userId;
+  User.findByIdAndUpdate(req.session.currentUser._id, { $push: { friends: friendId } })
+    .then(() => {
+      res.redirect('/users');
     })
-      req.session.currentUser =
-    res.redirect('/', )
-  }
-
-  .catch(next)
-}); */
+    .catch(next);
+});
 
 module.exports = router;

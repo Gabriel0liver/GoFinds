@@ -6,4 +6,6 @@
     {{/each}}
 </ul>
 
-<button type="submit">Add a friend</button>
+<form method="POST" action="/users/{{userId}}/add_friend">
+    <button type="submit">Add friend</button>
+</form>
