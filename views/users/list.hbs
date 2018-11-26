@@ -2,20 +2,10 @@
 <script src="/scripts/search.js"></script>
 
 <div class="search">
-    <label for="">Users:</label>
-    <div>
-        <div class="input-users">
-            <input type="text">
-        </div>
-        <div class="search-results"> 
-        </div>
+    <div class="input-users">
+        <input type="text" placeholder="Search for users..">
     </div>
+    <div class="search-results"> </div>
 </div>
 
-<h1>List of users</h1>
-
-<ul>
-    {{#each users}}
-        <li><a href="/users/{{this._id}}">{{this.username}}</a></li>
-    {{/each}}
-</ul>
+<h1>Friends:</h1>
