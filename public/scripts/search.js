@@ -26,6 +26,7 @@ const main = () => {
       const userLinkElement = document.createElement('a');
       const addFriendForm = document.createElement('form');
       const addFriendButton = document.createElement('button');
+      addFriendButton.className = ('add-friends-but');
       addFriendForm.setAttribute('method', 'POST');
       addFriendForm.setAttribute('action', '/users/' + user._id + '/add_friend');
       addFriendButton.setAttribute('type', 'submit');

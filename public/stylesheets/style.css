@@ -10,6 +10,7 @@ html {
 body {
   margin: 0;
   padding: 0;
+  background-color: #F6F6F6
 }
 
 /* ---- typography ---- */
@@ -65,7 +66,7 @@ nav {
   display: flex;
   justify-content: space-between;
   padding: 3%;
-  background-color:  rgb(141, 182, 182);
+  background-color:  #E2EDEE;
   
 }
 
@@ -113,7 +114,7 @@ button.signup-button{
   border-radius: 1000px;
   font-family: 'Montserrat', sans-serif;
   color: white;
-  background-color:#3A4454;
+  background-color:#244675;
   border: none;
   margin-top: 70px;
   box-shadow: 0px 8px 15px  rgba(0, 0, 0, 0.5);
@@ -126,7 +127,7 @@ button.add-image-home{
   border-radius: 1000px;
   font-family: 'Montserrat', sans-serif;
   color: white;
-  background-color:#3A4454;
+  background-color:#244675;
   border: none;
   margin-top: 70px;
   box-shadow: 0px 8px 15px  rgba(0, 0, 0, 0.5);
@@ -161,6 +162,7 @@ input.sign-log-input{
   font-size: 35px;
   align-self: center; 
   font-family: 'Montserrat', sans-serif;
+  background-color: transparent;
 }
 
 label{
@@ -226,8 +228,8 @@ textarea.description-area{
  }
 
   .inputfile::before{
-    background: white;
-    color: #3A4454;
+    background: #F6F6F6;
+    color: #244675;
     padding: 0.8em 1.1em;
     border-radius: 60px;
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
@@ -246,6 +248,14 @@ textarea.description-area{
     box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.5);
     color: #fff;
     transform: translateY(-10px);
+  }
+
+  button.add-friends-but{
+    display: flex;
+    float: right;
+    font-size: 0.8em;
+    border-radius: 20px;
+    background-color: white
   }
 
 /* ---- section ---- */
@@ -315,6 +325,13 @@ div.field-submit{
 div.add-photo-np{
   margin-top: 10%
 }
+
+div.container-description{
+  margin: 0 auto;
+  width: 70%
+}
+
+
 
 .input-users input{
   padding-left: 50px;
