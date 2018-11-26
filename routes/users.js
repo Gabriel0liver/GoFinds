@@ -24,4 +24,18 @@ router.get('/:userId', (req, res, next) => {
     .catch(next);
 });
 
+/* router.post('/:userId/add-friend', (req, res, next) => {
+  const { username, password,friend } = req.body;
+  User.update({ friend })
+  .then(() => {
+    User.upadate({
+      friend
+    })
+      req.session.currentUser =
+    res.redirect('/', )
+  }
+
+  .catch(next)
+}); */
+
 module.exports = router;
