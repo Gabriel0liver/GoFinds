@@ -64,7 +64,12 @@ router.post('/:userId/add_friend', (req, res, next) => {
 });
 
 router.post('/:userId/remove_friend', (req, res, next) => {
-
+  const friendId = req.params.userId;
+  User.findByIdAndUpdate(req.session.currentUser._id, { $pull: { friends: { friendId } } })
+    .then(() => {
+      res.redirect('/users');
+    })
+    .catch(next);
 });
 
 module.exports = router;
