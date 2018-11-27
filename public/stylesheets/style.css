@@ -10,7 +10,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background-color: #e2edee47;
+  background-color: white;
   
 }
 
@@ -68,13 +68,14 @@ nav {
   display: flex;
   justify-content: space-between;
   padding: 3%;
-  background-color: #e2edee;
+  background-color: #FAFAFA;
+  border-top: 0.4px solid #B2B2B2;
   width: 100%;
   position: fixed;
   right: 0;
   bottom: 0;
   left: 0;
-  box-shadow: 0px -5px 15px rgb(192, 192, 192);
+  /*box-shadow: 0px -5px 15px rgb(192, 192, 192);*/
   
 }
 
@@ -133,13 +134,13 @@ button.signup-button{
 button.add-image-home{
   font-size: 35px;
   padding: 4% 20% 4% 20%;
-  border-radius: 20px;
+  border-radius: 45px;
   font-family: 'Montserrat', sans-serif;
-  color: white;
-  background-color:#244675;
+  color: #000;
+  background-color:#fff;
   border: none;
-  margin-top: 70px;
-  box-shadow: 0px 8px 15px  rgba(0, 0, 0, 0.5);
+  margin-top: 30%;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   cursor: pointer;
 }
 
@@ -229,19 +230,19 @@ textarea.description-area{
   }
 
  .inputfile{
-  margin-left: 25%;
+  margin-left: 17%;
   margin-top: 30%;
-  padding: 2%;
+  padding: 10%;
   border-color: rgb(212,212,216);
   
  }
 
   .inputfile::before{
-    background: #E2EDEE;
-    color: #244675;
-    padding: 0.8em 1.1em;
+    background: linear-gradient(#736cf5, #b46ddf);
+    color: white;
+    padding: 0.5em 0.8em;
     border-radius: 300px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 0 rgba(226, 237, 238, 1);
     font-size: 150px;
     font-family: 'Montserrat', sans-serif;
     content: '+';
@@ -249,14 +250,42 @@ textarea.description-area{
     transition: all 0.3s ease 0s;
     cursor: pointer;
     outline: none;
-    
+    animation: pulse 2s infinite;
   }
 
   .inputfile:hover::before{
     background-color: #3A4454;
-    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 0 rgba(226, 237, 238, 1);
     color: #fff;
     transform: translateY(-10px);
+    animation: none;
+    
+  }
+
+  @-webkit-keyframes pulse {
+    0% {
+      -webkit-box-shadow: 0 0 0 0 rgba(226, 237, 238, 1);
+    }
+    70% {
+        -webkit-box-shadow: 0 0 0 10px rgba(226, 237, 238, 0);
+    }
+    100% {
+        -webkit-box-shadow: 0 0 0 0 rgba(226, 237, 238, 0);
+    }
+  }
+  @keyframes pulse {
+    0% {
+      -moz-box-shadow: 0 0 0 0 rgba(226, 237, 238, 1);
+      box-shadow: 0 0 0 0 rgba(226, 237, 238, 1);
+    }
+    70% {
+        -moz-box-shadow: 0 0 0 100px rgba(226, 237, 238, 0);
+        box-shadow: 0 0 0 100px rgba(226, 237, 238, 0);
+    }
+    100% {
+        -moz-box-shadow: 0 0 0 0 rgba(226, 237, 238, 0);
+        box-shadow: 0 0 0 0 rgba(226, 237, 238, 0);
+    }
   }
 
   button.add-friends-but{
@@ -281,9 +310,9 @@ textarea.description-area{
   }
 
   img.logo{
-    width: 100%;
+    width: 50%;
     position: relative;
-    top: -40px;
+    top: -10px;
   }
 /* ---- section ---- */
 
@@ -394,9 +423,12 @@ div.container-description{
 }
 
 .top-image{
-  background-color: #e1edef;
-  box-shadow: 0px 5px 15px rgb(192, 192, 192);
-  position: relative;
+  background-color: #FAFAFA;
+  /*box-shadow: 0px 5px 15px rgb(192, 192, 192);*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 0.4px solid #B2B2B2
 }
 
 .form{
