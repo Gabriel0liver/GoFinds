@@ -1,15 +1,17 @@
-<div class="home-page">
-  <div class="top-image">
+<div class="top-image">
     <img class="logo" src="/images/logo.png" alt="">
   </div>
+
+<div class="home-page">
+  
   {{!-- <p class="home-page-header">Select an image</p>--}}
 
 <form method="POST" action="/" enctype="multipart/form-data" class="form">
 
-  <div class="field home-page-image">
+  {{!--<div class="field home-page-image"> --}}
     {{!-- <label for=b1 class="home-page-label">Image</label>  --}}
     <input type='file' name='image' class="inputfile" accept="image/*" />
-  </div>
+  {{!--</div>--}}
 
   <div class="field-submit">
     

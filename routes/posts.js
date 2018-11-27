@@ -8,7 +8,7 @@ const formMiddleware = require('../middleware/formMiddleware');
 
 const ObjectId = require('mongoose').Types.ObjectId;
 
-// post create - do we need it?
+// add a comment
 router.get('/create', authMiddleware.requireUser, (req, res, next) => {
   const data = {
     messages: req.flash('error')
@@ -94,7 +94,6 @@ router.post('/:postId/edit', authMiddleware.requireUser, (req, res, next) => {
       // edit a comment
       Post.findByIdAndUpdate(postId, { $set: { comment } })
         .then((result) => {
-          // redirect to posts?
           res.redirect('/');
         })
         .catch(next);
