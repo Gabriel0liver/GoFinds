@@ -70,7 +70,6 @@ router.get('/:postId/edit', authMiddleware.requireUser, (req, res, next) => {
   Post.findById(postId)
     .then((result) => {
       if (!result.owner.equals(req.session.currentUser._id)) {
-        console.log('here');
         return res.redirect('/');
       }
       res.render('posts/edit', { post: result });

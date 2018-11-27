@@ -11,6 +11,6 @@
 <h1>Friends:</h1>
 <ul>
 {{#each friends}}
-    <li>{{this}}</li>
+    <li><a href="/users/{{this.friendId}}">{{this.friendName}}</a><form action="/users/{{this.friendId}}/remove_friend" method="POST"><button type="submit"> Remove friend </button></form></li>
 {{/each}}
 </ul>

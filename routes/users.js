@@ -14,7 +14,7 @@ router.get('/', (req, res, next) => {
       const friends = result.friends;
       res.render('users/list', { friends });
     })
-    .catch();
+    .catch(next);
 });
 
 router.get('/:userId', (req, res, next) => {
@@ -31,11 +31,40 @@ router.get('/:userId', (req, res, next) => {
 
 router.post('/:userId/add_friend', (req, res, next) => {
   const friendId = req.params.userId;
-  User.findByIdAndUpdate(req.session.currentUser._id, { $push: { friends: friendId } })
-    .then(() => {
-      res.redirect('/users');
+  let friendName;
+  let friend = {};
+
+  if (friendId === req.session.currentUser._id) {
+    return res.redirect('/users');
+  };
+  User.findById(req.session.currentUser._id)
+    .then(result => {
+      result.friends.forEach(friend => {
+        if (friend === friendId) {
+          return res.redirect('/users');
+        }
+      });
     })
     .catch(next);
+
+  User.findById(friendId)
+    .then(result => {
+      friendName = result.username;
+      friend = {
+        friendId,
+        friendName
+      };
+      User.findByIdAndUpdate(req.session.currentUser._id, { $push: { friends: friend } })
+        .then(() => {
+          res.redirect('/users');
+        })
+        .catch(next);
+    })
+    .catch(next);
+});
+
+router.post('/:userId/remove_friend', (req, res, next) => {
+
 });
 
 module.exports = router;

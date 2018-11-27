@@ -16,7 +16,6 @@ router.post('/', authMiddleware.requireUser, parser.single('image'), (req, res, 
     .landmarkDetection(req.file.url)
     .then(results => {
       let title = results[0].landmarkAnnotations[0].description;
-      console.log(title);
       const arrayTitle = title.split('');
       title = '';
       for (let element of arrayTitle) {

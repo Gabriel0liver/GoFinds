@@ -16,11 +16,9 @@ router.get('', (req, res, next) => {
     uri: 'https://en.wikipedia.org/w/api.php?action=opensearch&format=json&search=' + title,
     json: true
   };
-  console.log(options1.uri);
   rp(options1)
     .then((result) => {
       wikiTitle = result[1][0];
-      console.log(wikiTitle);
       getContent();
     })
     .catch();
