@@ -6,7 +6,7 @@ const router = express.Router();
 const User = require('../models/user');
 
 const ObjectId = require('mongoose').Types.ObjectId;
-/* GET home page. */
+// link fonted backend
 router.get('/', (req, res, next) => {
   User.find()
     .then(result => {

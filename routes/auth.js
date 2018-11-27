@@ -28,6 +28,7 @@ router.post('/signup', authMiddleware.requireAnon, formMiddleware.requireFieldsU
       }
       const salt = bcrypt.genSaltSync(saltRounds);
       const hashedPassword = bcrypt.hashSync(password, salt);
+      // create a user
       User.create({
         username,
         password: hashedPassword

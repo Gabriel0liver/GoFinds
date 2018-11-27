@@ -7,7 +7,7 @@ const User = require('../models/user');
 const Post = require('../models/post');
 
 const ObjectId = require('mongoose').Types.ObjectId;
-/* GET home page. */
+// display users page
 router.get('/', (req, res, next) => {
   User.findById(req.session.currentUser._id)
     .then(result => {
@@ -17,6 +17,7 @@ router.get('/', (req, res, next) => {
     .catch(next);
 });
 
+// display posts of the currentuser
 router.get('/:userId', (req, res, next) => {
   const userId = req.params.userId;
   if (!ObjectId.isValid(userId)) {
@@ -28,8 +29,9 @@ router.get('/:userId', (req, res, next) => {
     })
     .catch(next);
 });
-
+// add a friend POST
 router.post('/:userId/add_friend', (req, res, next) => {
+  // friendid
   const friendId = req.params.userId;
   let friendName;
   let friend = {};
@@ -39,6 +41,7 @@ router.post('/:userId/add_friend', (req, res, next) => {
   };
   User.findById(req.session.currentUser._id)
     .then(result => {
+      // ?
       result.friends.forEach(friend => {
         if (friend === friendId) {
           return res.redirect('/users');

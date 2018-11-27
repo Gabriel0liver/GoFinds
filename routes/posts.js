@@ -8,7 +8,7 @@ const formMiddleware = require('../middleware/formMiddleware');
 
 const ObjectId = require('mongoose').Types.ObjectId;
 
-/* GET home page. */
+// post create - do we need it?
 router.get('/create', authMiddleware.requireUser, (req, res, next) => {
   const data = {
     messages: req.flash('error')
@@ -30,6 +30,7 @@ router.post('/create', authMiddleware.requireUser, formMiddleware.requireFieldsP
   }).catch(next);
 });
 
+// display post page
 router.get('/:postId', authMiddleware.requireUser, (req, res, next) => {
   const postId = req.params.postId;
   if (!ObjectId.isValid(postId)) {
@@ -37,12 +38,13 @@ router.get('/:postId', authMiddleware.requireUser, (req, res, next) => {
   }
   Post.findById(postId)
     .then((result) => {
+      // check if current user is an owner of a post
       const isOwner = (result.owner.equals(req.session.currentUser._id));
       res.render('posts/post', { post: result, isOwner });
     })
     .catch(next);
 });
-
+// remove the post
 router.post('/:postId/remove', authMiddleware.requireUser, (req, res, next) => {
   const postId = req.params.postId;
   if (!ObjectId.isValid(postId)) {
@@ -50,6 +52,7 @@ router.post('/:postId/remove', authMiddleware.requireUser, (req, res, next) => {
   }
   Post.findById(postId)
     .then((result) => {
+      // check if owner
       if (!result.owner.equals(req.session.currentUser._id)) {
         return res.redirect('/');
       }
@@ -61,7 +64,7 @@ router.post('/:postId/remove', authMiddleware.requireUser, (req, res, next) => {
     })
     .catch(next);
 });
-
+// get edit page
 router.get('/:postId/edit', authMiddleware.requireUser, (req, res, next) => {
   const postId = req.params.postId;
   if (!ObjectId.isValid(postId)) {
@@ -88,8 +91,10 @@ router.post('/:postId/edit', authMiddleware.requireUser, (req, res, next) => {
       if (!result.owner.equals(req.session.currentUser._id)) {
         return res.redirect('/');
       }
+      // edit a comment
       Post.findByIdAndUpdate(postId, { $set: { comment } })
         .then((result) => {
+          // redirect to posts?
           res.redirect('/');
         })
         .catch(next);

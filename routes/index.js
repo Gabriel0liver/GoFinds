@@ -17,6 +17,7 @@ router.post('/', authMiddleware.requireUser, parser.single('image'), (req, res, 
     .then(results => {
       let title = results[0].landmarkAnnotations[0].description;
       const arrayTitle = title.split('');
+      // title string??
       title = '';
       for (let element of arrayTitle) {
         let breakForEach = false;
