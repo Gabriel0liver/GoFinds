@@ -13,6 +13,9 @@ const userSchema = new Schema({
     type: String,
     required: true
   },
+  history: {
+    type: Array
+  },
   friends: {
     type: Array
   }
@@ -21,4 +24,3 @@ const userSchema = new Schema({
 const User = mongoose.model('User', userSchema);
 
 module.exports = User;
-

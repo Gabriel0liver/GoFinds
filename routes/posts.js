@@ -3,6 +3,7 @@
 const express = require('express');
 const router = express.Router();
 const Post = require('../models/post');
+const User = require('../models/user');
 const authMiddleware = require('../middleware/authMiddleware');
 const formMiddleware = require('../middleware/formMiddleware');
 
@@ -25,8 +26,12 @@ router.post('/create', authMiddleware.requireUser, formMiddleware.requireFieldsP
     comment,
     imageUrl,
     owner: req.session.currentUser._id
-  }).then(() => {
-    res.redirect('/');
+  }).then(result => {
+    User.findByIdAndUpdate(req.session.currentUser._id, { $push: { history: { title, id: result._id } } })
+      .then(() => {
+        res.redirect('/');
+      })
+      .catch(next);
   }).catch(next);
 });
 

@@ -3,6 +3,8 @@
 const express = require('express');
 const router = express.Router();
 
+const User = require('../models/user');
+
 const rp = require('request-promise');
 
 router.get('', (req, res, next) => {
@@ -40,5 +42,34 @@ router.get('', (req, res, next) => {
       .catch();
   };
 });
+
+const displayRecomendations = () => {
+  const landmark = null;
+  let placesAndScores = {};
+  User.find()
+    .then(arrayOfUsers => {
+      let hasVisitedLandmark;
+      arrayOfUsers.forEach(user => {
+        user.history.forEach(place => {
+          if (place.title === landmark) {
+            hasVisitedLandmark = true;
+          }
+        });
+      });
+      if (hasVisitedLandmark) {
+        arrayOfUsers.forEach(user => {
+          user.history.forEach(place => {
+            const placeName = place.title;
+            if (placeName in placesAndScores) {
+              placesAndScores.placeName += 1;
+            } else {
+              placesAndScores.placeName = 1;
+            }
+          });
+        });
+      }
+    })
+    .catch();
+};
 
 module.exports = router;
