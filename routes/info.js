@@ -36,40 +36,46 @@ router.get('', (req, res, next) => {
         const page = result.query.pages;
         const pageId = Object.keys(page)[0];
         content = page[pageId].extract;
-
-        res.render('display-info', { title, content, imageUrl });
+        const landmark = title;
+        let placesAndScores = {};
+        let orderedList = [];
+        User.find()
+          .then(arrayOfUsers => {
+            arrayOfUsers.forEach(user => {
+              let hasVisited = false;
+              user.history.forEach(place => {
+                if (place.title === landmark) {
+                  hasVisited = true;
+                }
+              });
+              if (hasVisited) {
+                user.history.forEach(place => {
+                  const placeName = place.title;
+                  if ([placeName] in placesAndScores) {
+                    placesAndScores[placeName]++;
+                  } else {
+                    placesAndScores[placeName] = 1;
+                  }
+                });
+              }
+            });
+            placesAndScores[landmark] = 0;
+            const sortable = [];
+            for (var place in placesAndScores) {
+              sortable.push([place, placesAndScores[place]]);
+            }
+            sortable.sort((a, b) => {
+              return b[1] - a[1];
+            });
+            // orderedList.push(sortable[0][0], sortable[1][0], sortable[2][0]);
+            orderedList = [sortable[0][0], sortable[1][0], sortable[2][0]];
+            console.log(orderedList);
+            res.render('display-info', { title, content, imageUrl, orderedList });
+          })
+          .catch();
       })
       .catch();
   };
 });
-
-const displayRecomendations = () => {
-  const landmark = null;
-  let placesAndScores = {};
-  User.find()
-    .then(arrayOfUsers => {
-      let hasVisitedLandmark;
-      arrayOfUsers.forEach(user => {
-        user.history.forEach(place => {
-          if (place.title === landmark) {
-            hasVisitedLandmark = true;
-          }
-        });
-      });
-      if (hasVisitedLandmark) {
-        arrayOfUsers.forEach(user => {
-          user.history.forEach(place => {
-            const placeName = place.title;
-            if (placeName in placesAndScores) {
-              placesAndScores.placeName += 1;
-            } else {
-              placesAndScores.placeName = 1;
-            }
-          });
-        });
-      }
-    })
-    .catch();
-};
 
 module.exports = router;

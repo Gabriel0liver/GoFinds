@@ -9,5 +9,10 @@
     <textarea class="description-area" type="text" rows="5" cols="33" name="comment" placeholder="Add a comment..."></textarea>
     <input type="hidden" name="imageUrl" value="{{imageUrl}}">
     <button class="signup-button" type="submit">add to history</button>
+    <ul>
+        {{#each orderedList}}
+            <li>{{this}}</li>
+        {{/each}}
+    </ul>
     </div>
 </form>
