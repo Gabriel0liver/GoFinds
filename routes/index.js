@@ -4,12 +4,11 @@ const express = require('express');
 const router = express.Router();
 const authMiddleware = require('../middleware/authMiddleware');
 
-const key = process.env.KEY;
-
 const vision = require('@google-cloud/vision')({
   projectId: 'gofinds-223310',
-  credentials: JSON.parse(process.env.GCS_KEYFILE)
+  credentials: 'GoFinds-24ce235bc296.json'
 });
+
 const client = new vision.ImageAnnotatorClient();
 const parser = require('../helpers/file-upload');
 
