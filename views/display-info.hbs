@@ -3,11 +3,16 @@
 <form action="/post/create" method="POST">
 <div class="container-description">
     <h1 name="title">{{title}}</h1>
-    <p name="description">{{content}}</p>
+    <p class="content" name="description">{{content}}</p>
     <input type="hidden" name="title" value="{{title}}">
     <input type="hidden" name="description" value="{{content}}">
     <textarea class="description-area" type="text" rows="5" cols="33" name="comment" placeholder="Add a comment..."></textarea>
     <input type="hidden" name="imageUrl" value="{{imageUrl}}">
     <button class="signup-button" type="submit">add to history</button>
+    <ul>
+        {{#each orderedList}}
+            <li>{{this}}</li>
+        {{/each}}
+    </ul>
     </div>
 </form>
