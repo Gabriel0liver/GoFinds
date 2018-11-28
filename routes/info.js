@@ -48,26 +48,18 @@ const displayRecomendations = () => {
   let placesAndScores = {};
   User.find()
     .then(arrayOfUsers => {
-      let hasVisitedLandmark;
       arrayOfUsers.forEach(user => {
-        user.history.forEach(place => {
-          if (place.title === landmark) {
-            hasVisitedLandmark = true;
-          }
-        });
-      });
-      if (hasVisitedLandmark) {
-        arrayOfUsers.forEach(user => {
+        if (user.history.includes(landmark)) {
           user.history.forEach(place => {
-            const placeName = place.title;
-            if (placeName in placesAndScores) {
-              placesAndScores.placeName++;
+            if (place in placesAndScores) {
+              placesAndScores.place++;
             } else {
-              placesAndScores.placeName = 1;
+              placesAndScores.place = 1;
             }
           });
-        });
-      }
+        }
+      });
+      console.log(placesAndScores);
     })
     .catch();
 };
