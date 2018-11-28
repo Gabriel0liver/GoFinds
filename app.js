@@ -1,5 +1,7 @@
 'use strict';
 
+require('dotenv').config();
+
 const mongoose = require('mongoose');
 const express = require('express');
 const path = require('path');
@@ -18,7 +20,7 @@ const getUsers = require('./routes/getUsers');
 
 const app = express();
 
-mongoose.connect('mongodb://localhost/gofinds', {
+mongoose.connect(process.env.MONGODB_URI, {
   keepAlive: true,
   useNewUrlParser: true,
   reconnectTries: Number.MAX_VALUE

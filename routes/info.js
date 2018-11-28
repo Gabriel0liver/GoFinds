@@ -61,7 +61,7 @@ const displayRecomendations = () => {
           user.history.forEach(place => {
             const placeName = place.title;
             if (placeName in placesAndScores) {
-              placesAndScores.placeName += 1;
+              placesAndScores.placeName++;
             } else {
               placesAndScores.placeName = 1;
             }
