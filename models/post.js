@@ -22,6 +22,7 @@ const postSchema = new Schema({
     required: true
   },
   owner: {
+    // type: String
     type: ObjectId,
     ref: 'User'
   }

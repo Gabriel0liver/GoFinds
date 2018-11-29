@@ -1,9 +1,13 @@
+require('dotenv').config();
+
 const express = require('express');
 const router = express.Router();
 const authMiddleware = require('../middleware/authMiddleware');
 
-const vision = require('@google-cloud/vision');
-const client = new vision.ImageAnnotatorClient();
+const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY;
+
+const axios = require('axios');
+
 const parser = require('../helpers/file-upload');
 
 router.get('/', (req, res, next) => {
@@ -11,11 +15,22 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/', authMiddleware.requireUser, parser.single('image'), (req, res, next) => {
-  // Performs landmark detection on the local file
-  client
-    .landmarkDetection(req.file.url)
-    .then(results => {
-      let title = results[0].landmarkAnnotations[0].description;
+  const requestBody = {
+    requests: [{
+      image: { source: { imageUri: req.file.url } },
+      features: [{
+        type: 'LANDMARK_DETECTION',
+        maxResults: 100
+      }]
+    }]
+  };
+
+  axios.post(
+    `https://vision.googleapis.com/v1/images:annotate?key=${GOOGLE_API_KEY}`,
+    requestBody
+  )
+    .then((response) => {
+      let title = response.data.responses[0].landmarkAnnotations[0].description;
       const arrayTitle = title.split('');
       // title string??
       title = '';
@@ -37,9 +52,6 @@ router.post('/', authMiddleware.requireUser, parser.single('image'), (req, res, 
       };
       title = encodeURIComponent(title);
       res.redirect('/landmark_info?title=' + title + '&image=' + req.file.url);
-    })
-    .catch(err => {
-      console.error('ERROR:', err);
     });
 });
 
