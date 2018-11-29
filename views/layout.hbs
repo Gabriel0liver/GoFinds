@@ -11,16 +11,17 @@
     {{{body}}}
     <nav>
       <ul class="nav-bar">
-        <li class="nav-li"><a href="/"><img class="nav-buttons" src="/images/add.svg" alt=""></a></li>
+        {{!--<li class="nav-li"><a href="/"><img class="nav-buttons" src="/images/add.svg" alt=""></a></li>--}}
         {{#unless currentUser}}
-        <li class="nav-li"><a href="/auth/signup">Sign up</a></li>
-        <li class="nav-li"><a href="/auth/login">Log in</a></li>
+        <li class="nav-li signlogtext"><a href="/auth/signup">Sign up</a></li>
+        <li class="nav-li signlogtext"><a href="/auth/login">Log in</a></li>
         {{else}}
+        <li class="nav-li"><a href="/"><img class="nav-buttons" src="/images/add.svg" alt=""></a></li>
         <li class="nav-li"><a href="/users"><img class="nav-buttons" src="/images/users.svg" alt=""/></a></li>
         <li class="nav-li"><a href="/users/{{currentUser._id}}"><img class="nav-buttons" src="/images/history.svg" alt=""></a></li>
         <li class="nav-li">
          <form action="/auth/logout" method="POST">
-            <button class="logout-button" type="submit"><img class="nav-buttons" src="/images/logout.svg" alt=""></button>
+            <button class="logout-button" type="submit"><img class="logout-butt" src="/images/logout.svg" alt=""></button>
           </form>
         </li>
         {{/unless}}

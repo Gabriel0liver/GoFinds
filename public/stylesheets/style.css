@@ -132,7 +132,8 @@ ul.nav-bar{
   
 }
 
-li{
+li.signlogtext{
+  margin: 3%
 }
 
 li.friends-list{
@@ -193,17 +194,21 @@ button.add-image-home{
   border-color: #b46ddf;
 }
 
-button.logout-button{
+.logout-button::-webkit-file-upload-button {
+  display: none;
+}
+
+.logout-button::before{
+  display: none;
   font-size: 0.8em;
   border: none;
   background-color: transparent;
   font-family: 'Montserrat', sans-serif;
-  width: 50px;
-  height: 2px;
+  width: 35px;
+  height: 26px;
   padding-top: 10px;
   padding-left: 10px;
   padding-right: 10px;
-
 }
 
 input.image-buton{
@@ -287,6 +292,9 @@ textarea.description-area{
   margin-top: 5%;
 }
 
+img.logout-butt{
+  width: 60%
+}
 .nav-buttons{
   width: 50%;
 }
@@ -370,17 +378,18 @@ textarea.description-area{
   button.add-friends-but{
     display: flex;
     float: right;
-    font-size: 0.9em;
+    font-size: 0.7em;
     border-radius: 10px;
-    background-color: #e2ecee;
-    float: right;
-    height: 50px;
-    width: 200px;
+    background: #736cf5;
+    padding: 3%;
     text-align: center;
     position: relative;
     top: -10px;
+    border: none;
+    color: white;
     font-family: 'Montserrat', sans-serif;
-  }
+}
+
 
   img.upload{
     width: 15%;
@@ -646,4 +655,8 @@ div.search-results{
   justify-content: center;
   align-items: center;
   width: 90%;
+}
+
+div.search{
+  margin-bottom: 10%
 }
