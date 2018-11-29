@@ -1,21 +1,38 @@
+{{!--<div class="logout">
+  <form class="logout-form" action="/auth/logout" method="POST">
+    <button class="logout-button" type="submit"><img class="logout-buttons" src="/images/logout.svg" alt=""></button>
+  </form>
+</div>--}}
 <div class="top-image">
     <img class="logo" src="/images/logo1.png" alt="">
   </div>
 
-<div class="home-page">
-  
+<div class="home-page loaded">
   {{!-- <p class="home-page-header">Select an image</p>--}}
+  <form method="POST" action="/" enctype="multipart/form-data" class="form">
 
-<form method="POST" action="/" enctype="multipart/form-data" class="form">
+    {{!--<div class="field home-page-image"> --}}
+      {{!-- <label for=b1 class="home-page-label">Image</label>  --}}
+      <input type='file' name='image' class="inputfile" accept="image/*" />
+    {{!--</div>--}}
 
-  {{!--<div class="field home-page-image"> --}}
-    {{!-- <label for=b1 class="home-page-label">Image</label>  --}}
-    <input type='file' name='image' class="inputfile" accept="image/*" />
-  {{!--</div>--}}
-
-  <div class="field-submit">
-    
-    <button class="add-image-home" type="submit">identify</button>
-  </div>
-</form>
+    <div class="field-submit">
+      
+      <button class="add-image-home" type="submit">identify</button>
+    </div>
+  </form>
 </div>
+
+<div class="loading isHidden">
+  <div class="loader-one">Loading...</div>
+</div>
+
+<script>
+  const button = document.querySelector('button');
+  const div = document.querySelector('.loaded');
+  const loading = document.querySelector('.isHidden');
+  button.addEventListener('click', () => {
+    div.classList.add('isLoading')
+    loading.classList.remove('isHidden')
+  })
+</script>

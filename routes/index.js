@@ -36,7 +36,7 @@ router.post('/', authMiddleware.requireUser, parser.single('image'), (req, res, 
         }
       };
       title = encodeURIComponent(title);
-      res.redirect('/landmark_info?title=' + title + '&image=' + req.file.url);
+      // res.redirect('/landmark_info?title=' + title + '&image=' + req.file.url);
     })
     .catch(err => {
       console.error('ERROR:', err);

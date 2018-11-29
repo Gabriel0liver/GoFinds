@@ -1,11 +1,15 @@
-<h1>History</h1>
-
-<ul>
+<div class="nav-pages">
+    <p class="friends-p">History</p>
+    <form class="logout-form" action="/auth/logout" method="POST">
+    <button class="logout-button" type="submit"><img class="logout-buttons" src="/images/logout.svg" alt=""></button>
+  </form>
+</div>
+<ul class="friend-list-ul">
     {{#each posts}}
-        <li><a href="/post/{{this._id}}"><h1>{{this.title}}</h1></a></li>
+        <li class="posts-list"><a href="/post/{{this._id}}">{{this.title}}</a></li>
     {{/each}}
 </ul>
 
-<form method="POST" action="/users/{{userId}}/add_friend">
+{{!--<form method="POST" action="/users/{{userId}}/add_friend">
     <button type="submit">Add friend</button>
-</form>
+</form>--}}

@@ -2,7 +2,8 @@
 <script src="/scripts/search.js"></script>
 
 <div class="nav-pages">
-    <img class="img-nav-pages" src="/images/logo3.png" alt="" />
+    {{!--<img class="img-nav-pages" src="/images/logo3.png" alt="" /> --}}
+    <p class="friends-p">Friends</p>
 </div>
 <div class="search">
     <div class="input-users">
@@ -11,9 +12,15 @@
     <div class="search-results"> </div>
 </div>
 
-<h1>Friends:</h1>
-<ul>
+<ul class="friend-list-ul">
 {{#each friends}}
-    <li><a href="/users/{{this.friendId}}">{{this.friendName}}</a><form action="/users/{{this.friendId}}/remove_friend" method="POST"><button type="submit"> Remove friend </button></form></li>
+    <li class="friends-list">
+        <a href="/users/{{this.friendId}}">{{this.friendName}}</a>
+        <form class="form-addfriend" action="/users/{{this.friendId}}/remove_friend" method="POST">
+            <button type="submit"> 
+                <img class="remove-friend" src="/images/delete-user.svg" alt="">
+            </button>
+        </form>
+    </li>
 {{/each}}
 </ul>
