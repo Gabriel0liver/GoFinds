@@ -44,17 +44,16 @@ router.get('', (req, res, next) => {
             arrayOfUsers.forEach(user => {
               let hasVisited = false;
               user.history.forEach(place => {
-                if (place.title === landmark) {
+                if (place === landmark) {
                   hasVisited = true;
                 }
               });
               if (hasVisited) {
                 user.history.forEach(place => {
-                  const placeName = place.title;
-                  if ([placeName] in placesAndScores) {
-                    placesAndScores[placeName]++;
+                  if ([place] in placesAndScores) {
+                    placesAndScores[place]++;
                   } else {
-                    placesAndScores[placeName] = 1;
+                    placesAndScores[place] = 1;
                   }
                 });
               }
@@ -67,8 +66,9 @@ router.get('', (req, res, next) => {
             sortable.sort((a, b) => {
               return b[1] - a[1];
             });
-            // orderedList.push(sortable[0][0], sortable[1][0], sortable[2][0]);
-            orderedList = [sortable[0][0], sortable[1][0], sortable[2][0]];
+            if (orderedList.length > 3) {
+              orderedList = [sortable[0][0], sortable[1][0], sortable[2][0]];
+            }
             console.log(orderedList);
             res.render('display-info', { title, content, imageUrl, orderedList });
           })

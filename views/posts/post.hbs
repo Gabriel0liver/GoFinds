@@ -1,7 +1,9 @@
-<img src="{{post.imageUrl}}">
-<h1>{{post.title}}</h1>
-<p>{{post.comment}}</p>
-<p>{{post.description}}</p>
+<img class="post-det-im" src="{{post.imageUrl}}">
+<div class="post-det-desc">
+    <h1>{{post.title}}</h1>
+    <p class="post-comment">{{post.comment}}</p>
+    <p>{{post.description}}</p>
+</div>
 
 
 {{#if isOwner}}

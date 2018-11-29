@@ -27,7 +27,7 @@ router.post('/create', authMiddleware.requireUser, formMiddleware.requireFieldsP
     imageUrl,
     owner: req.session.currentUser._id
   }).then(result => {
-    User.findByIdAndUpdate(req.session.currentUser._id, { $push: { history: { title, id: result._id } } })
+    User.findByIdAndUpdate(req.session.currentUser._id, { $push: { history: title } })
       .then(() => {
         res.redirect('/');
       })
