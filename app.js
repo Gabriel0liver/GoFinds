@@ -20,7 +20,7 @@ const getUsers = require('./routes/getUsers');
 
 const app = express();
 
-mongoose.connect(process.env.MONGO_URI, {
+mongoose.connect(process.env.MONGODB_URI, {
   keepAlive: true,
   useNewUrlParser: true,
   reconnectTries: Number.MAX_VALUE
