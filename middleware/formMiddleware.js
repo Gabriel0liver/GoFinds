@@ -13,7 +13,7 @@ formMiddleware.requireFieldsUser = (req, res, next) => {
 };
 
 formMiddleware.requireFieldsPost = (req, res, next) => {
-  const { title, description, image } = req.body;
+  const { title, description } = req.body;
   if (!title || !description) {
     // username and password fields can't be empty
     req.flash('error', `fields can't be empty`);
