@@ -12,17 +12,14 @@
 
 <div class="home-page loaded">
   {{!-- <p class="home-page-header">Select an image</p>--}}
-  <form method="POST" action="/" enctype="multipart/form-data" class="form">
+  <form method="POST" action="/" enctype="multipart/form-data" class="form" id="myForm">
 
     {{!--<div class="field home-page-image"> --}}
       {{!-- <label for=b1 class="home-page-label">Image</label>  --}}
-      <input type='file' name='image' class="inputfile" accept="image/*" />
+      <input type='file' onchange="submited()" name='image' class="inputfile" accept="image/*" />
     {{!--</div>--}}
 
-    <div class="field-submit">
-      
-      <button class="add-image-home" type="submit">identify</button>
-    </div>
+    
   </form>
 </div>
 
@@ -36,8 +33,9 @@
   const button = document.querySelector('button');
   const div = document.querySelector('.loaded');
   const loading = document.querySelector('.isHidden');
-  button.addEventListener('click', () => {
-    div.classList.add('isLoading')
+  const submited = () =>{
+     document.getElementById("myForm").submit(); 
+     div.classList.add('isLoading')
     loading.classList.remove('isHidden')
-  })
+  }
 </script>

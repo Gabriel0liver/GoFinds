@@ -17,7 +17,7 @@
     <li class="friends-list">
         <a href="/users/{{this.friendId}}">{{this.friendName}}</a>
         <form class="form-addfriend" action="/users/{{this.friendId}}/remove_friend" method="POST">
-            <button type="submit"> 
+            <button class="remove-friend" type="submit"> 
                 <img class="remove-friend" src="/images/delete-user.svg" alt="">
             </button>
         </form>

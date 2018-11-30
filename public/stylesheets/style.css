@@ -20,6 +20,7 @@ body {
   color: #111;
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
+  margin-bottom: 35%
   
 }
 
@@ -78,10 +79,18 @@ p.friends-p{
 }
 p.post-comment{
   font-style: italic;
+  font-size: 0.9em
 }
 a{
   text-decoration: none;
   color: #2F323A;
+}
+
+a.edit-comment{
+  font-size: 1em;
+  font-family: 'Montserrat', sans-serif;
+  color: #2F323A;
+  width: 45%;
 }
 
 /* ---- layout ---- */
@@ -130,6 +139,18 @@ ul.nav-bar{
   justify-content: space-between;
   padding: 3%;
   
+}
+
+li{
+  list-style-type: none;
+}
+
+
+
+ul.recommendations-ul{
+  padding-left: 5%;
+  margin-top: 10%; 
+  line-height: 1.6em
 }
 
 li.signlogtext{
@@ -194,6 +215,14 @@ button.add-image-home{
   border-color: #b46ddf;
 }
 
+button.comment{
+  margin-top: 5%;
+}
+
+button.edit-page-but{
+  font-family: 'Montserrat', sans-serif;
+}
+
 .logout-button::-webkit-file-upload-button {
   display: none;
 }
@@ -209,6 +238,8 @@ button.add-image-home{
   padding-top: 10px;
   padding-left: 10px;
   padding-right: 10px;
+  border: none;
+  background: #FAFAFA;
 }
 
 input.image-buton{
@@ -235,6 +266,10 @@ input.sign-log-input{
 label{
   font-size: 30px;
   margin-right: 10px;
+}
+
+label.edit{
+  font-size: 1.2em;
 }
 
 label.new-post-title{
@@ -265,6 +300,13 @@ form.form-addfriend{
   width: 30%
 }
 
+form.remove-comment{
+  font-size: 1em;
+  font-family: 'Montserrat', sans-serif;
+  color: #2F323A;
+  width: 40%;
+}
+
 form.logout-form{
   display: flex;
   flex-direction: column;
@@ -278,9 +320,22 @@ textarea{
   border-radius: 30px;
 }
 
+textarea.edit-text{
+  width: 100%;
+  background: #FAFAFA;
+  border: none;
+  font-size: 0.9em;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  padding: 4%;
+}
+
 textarea.description-area{
   border: none;
-  font-size: 30px;
+  font-size: 0.9em;
+  width: 100%;
+  background: #FAFAFA;
+  border-radius: 20px;
 }
 
 .image-buton::-webkit-file-upload-button{
@@ -390,6 +445,18 @@ img.logout-butt{
     font-family: 'Montserrat', sans-serif;
 }
 
+button.form-style{
+  border: none;
+  background: white;
+  color: #2F323A;
+  font-size: 1em;
+  font-family: 'Montserrat', sans-serif;
+}
+
+button.remove-friend{
+  background: white;
+  border: none
+}
 
   img.upload{
     width: 15%;
@@ -441,7 +508,6 @@ div.from-sign-in{
 }
 
 
-
 div.new-post{
   width: 70%;
   height: 70%;
@@ -489,7 +555,7 @@ div.container-description{
 
 div.post-det-desc{
   margin: 0 auto;
-  width: 90%
+  width: 87%
 }
 
 
@@ -537,7 +603,7 @@ div.post-det-desc{
 }
 
 .info-image{
-  width: 90%;
+  width: 100%;
 }
 
 div.input-users{
@@ -659,4 +725,15 @@ div.search-results{
 
 div.search{
   margin-bottom: 10%
+}
+
+div.buttons-post{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15%;
+}
+
+div.edit-container{
+  margin: 0 auto;
+  width: 90%; 
 }

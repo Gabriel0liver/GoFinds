@@ -17,6 +17,7 @@ const usersRouter = require('./routes/users');
 const postRouter = require('./routes/posts');
 const infoRouter = require('./routes/info');
 const getUsers = require('./routes/getUsers');
+const notIdentifiedRouter = require('./routes/not-identified');
 
 const app = express();
 
@@ -62,6 +63,7 @@ app.use('/users', usersRouter);
 app.use('/post', postRouter);
 app.use('/landmark_info', infoRouter);
 app.use('/getUsers', getUsers);
+app.use('/not-identified', notIdentifiedRouter );
 
 // catch 404
 app.use((req, res, next) => {

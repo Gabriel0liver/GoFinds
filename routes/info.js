@@ -66,10 +66,9 @@ router.get('', (req, res, next) => {
             sortable.sort((a, b) => {
               return b[1] - a[1];
             });
-            if (orderedList.length > 3) {
+            if (sortable.length > 3) {
               orderedList = [sortable[0][0], sortable[1][0], sortable[2][0]];
             }
-            console.log(orderedList);
             res.render('display-info', { title, content, imageUrl, orderedList });
           })
           .catch();

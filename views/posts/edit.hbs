@@ -1,14 +1,16 @@
-<h1>Edit comment</h1>
+<div class="nav-pages">
+    <p class="friends-p">Edit comment</p>
+</div>
 
+<div class="edit-container">
 <form method="POST" action="/post/{{post.id}}/edit">
-
-  <div class="field" >
-    <label>Description</label>
-    <textarea type="text" rows="5" cols="33" name="comment">{{post.comment}}</textarea>
+  <div>
+    <label class="edit">Description</label>
+    <textarea class="edit-text" type="text" rows="5" cols="33" name="comment">{{post.comment}}</textarea>
   </div>
 
   <div class="field submit">
-    <button type="submit">edit comment</button>
+    <button class="signup-button" type="submit">edit comment</button>
   </div>
 </form>
 
@@ -17,3 +19,4 @@
   {{#each messages}}<li>{{this}}</li>{{/each}}
 </ul>
 {{/if}}
+</div>
