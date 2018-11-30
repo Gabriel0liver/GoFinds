@@ -10,6 +10,9 @@
     <input type="hidden" name="imageUrl" value="{{imageUrl}}">
     <button class="signup-button comment" type="submit">add to history</button>
     <ul class="recommendations-ul">
+        {{#if orderedList}}
+        <p class="reccom-p">As you visited {{title}} we recommend you also visit:</p>
+        {{/if}}
         {{#each orderedList}}
             <li>{{this}}</li>
         {{/each}}
