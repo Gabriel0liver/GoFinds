@@ -5,7 +5,7 @@
     <p>{{post.description}}</p>
     {{#if isOwner}}
     <div class="buttons-post">
-        <a class="edit-comment" href="/post/{{post._id}}/edit">Edit</a>
+        <a class="edit-comment" href="/post/{{post._id}}/edit">Edit comment</a>
         <form class="remove-comment" action="/post/{{post._id}}/remove" method="POST">
             <button class="form-style" type="submit">Remove from history</button>
         </form>
