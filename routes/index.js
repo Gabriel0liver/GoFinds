@@ -4,12 +4,15 @@ const express = require('express');
 const router = express.Router();
 const authMiddleware = require('../middleware/authMiddleware');
 
+// google API landmark detection
 const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY;
 
 const axios = require('axios');
 
+// wikipedia API
 const parser = require('../helpers/file-upload');
 
+// get home page
 router.get('/', (req, res, next) => {
   res.render('index');
 });
@@ -30,12 +33,14 @@ router.post('/', authMiddleware.requireUser, parser.single('image'), (req, res, 
     requestBody
   )
     .then((response) => {
+      // image not indentified
       if (Object.keys(response.data.responses[0]).length === 0) {
         return res.redirect('/not-identified');
       }
       let title = response.data.responses[0].landmarkAnnotations[0].description;
       const arrayTitle = title.split('');
       title = '';
+      // take just the first part of the title
       for (let element of arrayTitle) {
         let breakForEach = false;
         switch (element) {
@@ -52,6 +57,7 @@ router.post('/', authMiddleware.requireUser, parser.single('image'), (req, res, 
           break;
         }
       };
+      // title to URL
       title = encodeURIComponent(title);
       res.redirect('/landmark_info?title=' + title + '&image=' + req.file.url);
     });

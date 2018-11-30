@@ -19,6 +19,7 @@ const notIdentifiedRouter = require('./routes/not-identified');
 
 const app = express();
 
+// connect mongoose
 mongoose.connect('mongodb://localhost/gofinds', {
   keepAlive: true,
   useNewUrlParser: true,
@@ -61,7 +62,7 @@ app.use('/users', usersRouter);
 app.use('/post', postRouter);
 app.use('/landmark_info', infoRouter);
 app.use('/getUsers', getUsers);
-app.use('/not-identified', notIdentifiedRouter );
+app.use('/not-identified', notIdentifiedRouter);
 
 // catch 404
 app.use((req, res, next) => {

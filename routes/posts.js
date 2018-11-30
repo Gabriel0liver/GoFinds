@@ -9,14 +9,7 @@ const formMiddleware = require('../middleware/formMiddleware');
 
 const ObjectId = require('mongoose').Types.ObjectId;
 
-// add a comment
-router.get('/create', authMiddleware.requireUser, (req, res, next) => {
-  const data = {
-    messages: req.flash('error')
-  };
-  res.render('posts/new-post', data);
-});
-
+// add imgage, description and comment to the history
 router.post('/create', authMiddleware.requireUser, formMiddleware.requireFieldsPost, (req, res, next) => {
   const { title, description, comment, imageUrl } = req.body;
 
@@ -69,7 +62,7 @@ router.post('/:postId/remove', authMiddleware.requireUser, (req, res, next) => {
     })
     .catch(next);
 });
-// get edit page
+// get an edit page
 router.get('/:postId/edit', authMiddleware.requireUser, (req, res, next) => {
   const postId = req.params.postId;
   if (!ObjectId.isValid(postId)) {
@@ -85,6 +78,7 @@ router.get('/:postId/edit', authMiddleware.requireUser, (req, res, next) => {
     .catch(next);
 });
 
+// edit a comment
 router.post('/:postId/edit', authMiddleware.requireUser, (req, res, next) => {
   const postId = req.params.postId;
   const { comment } = req.body;
@@ -96,7 +90,6 @@ router.post('/:postId/edit', authMiddleware.requireUser, (req, res, next) => {
       if (!result.owner.equals(req.session.currentUser._id)) {
         return res.redirect('/');
       }
-      // edit a comment
       Post.findByIdAndUpdate(postId, { $set: { comment } })
         .then((result) => {
           res.redirect('/');

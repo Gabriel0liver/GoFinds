@@ -5,7 +5,7 @@ const router = express.Router();
 
 const User = require('../models/user');
 
-// link fonted backend
+// link FE-BE
 router.get('/', (req, res, next) => {
   User.find()
     .then(result => {

@@ -7,7 +7,7 @@ const User = require('../models/user');
 const Post = require('../models/post');
 
 const ObjectId = require('mongoose').Types.ObjectId;
-// display users page
+// get friends page
 router.get('/', (req, res, next) => {
   User.findById(req.session.currentUser._id)
     .then(result => {
@@ -31,17 +31,15 @@ router.get('/:userId', (req, res, next) => {
 });
 // add a friend POST
 router.post('/:userId/add_friend', (req, res, next) => {
-  // friendid
   const friendId = req.params.userId;
   let friendName;
   let friend = {};
-
+  // cannot add yourself
   if (friendId === req.session.currentUser._id) {
     return res.redirect('/users');
   };
   User.findById(req.session.currentUser._id)
     .then(result => {
-      // ?
       result.friends.forEach(friend => {
         if (friend === friendId) {
           return res.redirect('/users');
@@ -66,6 +64,7 @@ router.post('/:userId/add_friend', (req, res, next) => {
     .catch(next);
 });
 
+// remove a friend
 router.post('/:userId/remove_friend', (req, res, next) => {
   const friendId = req.params.userId;
   User.findByIdAndUpdate(req.session.currentUser._id, { $pull: { friends: { friendId } } })
