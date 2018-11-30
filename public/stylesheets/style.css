@@ -20,7 +20,7 @@ body {
   color: #111;
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
-  margin-bottom: 30%
+  margin-bottom: 35%
   
 }
 
@@ -87,14 +87,9 @@ a{
 }
 
 a.edit-comment{
-  font-size: 0.8em;
-  padding: 2% 10% 2% 10%;
-  border-radius: 45px;
+  font-size: 1em;
   font-family: 'Montserrat', sans-serif;
-  color: white;
-  background-color: #b46ddf;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
+  color: #2F323A;
   width: 45%;
 }
 
@@ -144,6 +139,18 @@ ul.nav-bar{
   justify-content: space-between;
   padding: 3%;
   
+}
+
+li{
+  list-style-type: none;
+}
+
+
+
+ul.recommendations-ul{
+  padding-left: 5%;
+  margin-top: 10%; 
+  line-height: 1.6em
 }
 
 li.signlogtext{
@@ -210,6 +217,10 @@ button.add-image-home{
 
 button.comment{
   margin-top: 5%;
+}
+
+button.edit-page-but{
+  font-family: 'Montserrat', sans-serif;
 }
 
 .logout-button::-webkit-file-upload-button {
@@ -286,17 +297,13 @@ input.title-newpost-input{
 
 form.form-addfriend{
   float: right;
-  width: 50%
+  width: 30%
 }
 
 form.remove-comment{
-  font-size: 0.8em;
-  padding: 2% 10% 2% 10%;
-  border-radius: 45px;
+  font-size: 1em;
   font-family: 'Montserrat', sans-serif;
-  color: white;
-  background-color: #b46ddf;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  color: #2F323A;
   width: 40%;
 }
 
@@ -440,8 +447,10 @@ img.logout-butt{
 
 button.form-style{
   border: none;
-  background: #b46ddf;
-  color: white;
+  background: white;
+  color: #2F323A;
+  font-size: 1em;
+  font-family: 'Montserrat', sans-serif;
 }
 
 button.remove-friend{
@@ -499,7 +508,6 @@ div.from-sign-in{
 }
 
 
-
 div.new-post{
   width: 70%;
   height: 70%;
@@ -547,7 +555,7 @@ div.container-description{
 
 div.post-det-desc{
   margin: 0 auto;
-  width: 90%
+  width: 87%
 }
 
 
@@ -722,7 +730,7 @@ div.search{
 div.buttons-post{
   display: flex;
   justify-content: space-between;
-  margin-top: 5%;
+  margin-top: 15%;
 }
 
 div.edit-container{
