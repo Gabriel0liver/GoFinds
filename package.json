@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "start-dev": "nodemon -e js,json,hbs ./bin/www",
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "seed-users": "node ./bin/userSeed",
+    "seed-posts": "node ./bin/postSeed"
   },
   "engines": {
     "node": "v11.1.0",
