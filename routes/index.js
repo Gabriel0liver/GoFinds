@@ -30,6 +30,9 @@ router.post('/', authMiddleware.requireUser, parser.single('image'), (req, res, 
     requestBody
   )
     .then((response) => {
+      if (Object.keys(response.data.responses[0]).length === 0) {
+        return res.redirect('/not-identified');
+      }
       let title = response.data.responses[0].landmarkAnnotations[0].description;
       const arrayTitle = title.split('');
       title = '';
