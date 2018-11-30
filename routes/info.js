@@ -7,6 +7,7 @@ const User = require('../models/user');
 
 const rp = require('request-promise');
 
+// GET description page - Wikipedia API
 router.get('', (req, res, next) => {
   const imageUrl = req.query.image;
   const title = req.query.title;
@@ -33,12 +34,14 @@ router.get('', (req, res, next) => {
     };
     rp(options2)
       .then((result) => {
+        // wikipedia API shit
         const page = result.query.pages;
         const pageId = Object.keys(page)[0];
         content = page[pageId].extract;
         const landmark = title;
         let placesAndScores = {};
         let orderedList = [];
+        // recommendations
         User.find()
           .then(arrayOfUsers => {
             arrayOfUsers.forEach(user => {
@@ -58,9 +61,10 @@ router.get('', (req, res, next) => {
                 });
               }
             });
+            // sort places and display the 3 most popular
             placesAndScores[landmark] = 0;
             const sortable = [];
-            for (var place in placesAndScores) {
+            for (let place in placesAndScores) {
               sortable.push([place, placesAndScores[place]]);
             }
             sortable.sort((a, b) => {

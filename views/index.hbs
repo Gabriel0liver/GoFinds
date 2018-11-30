@@ -1,25 +1,11 @@
-{{!--<div class="logout">
-  <form class="logout-form" action="/auth/logout" method="POST">
-    <button class="logout-button" type="submit"><img class="logout-buttons" src="/images/logout.svg" alt=""></button>
-  </form>
-</div>--}}
-
-
-
 <div class="top-image">
     <img class="logo" src="/images/logo1.png" alt="">
   </div>
 
 <div class="home-page loaded">
-  {{!-- <p class="home-page-header">Select an image</p>--}}
+
   <form method="POST" action="/" enctype="multipart/form-data" class="form" id="myForm">
-
-    {{!--<div class="field home-page-image"> --}}
-      {{!-- <label for=b1 class="home-page-label">Image</label>  --}}
       <input type='file' onchange="submited()" name='image' class="inputfile" accept="image/*" />
-    {{!--</div>--}}
-
-    
   </form>
 </div>
 

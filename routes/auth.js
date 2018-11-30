@@ -9,7 +9,7 @@ const formMiddleware = require('../middleware/formMiddleware');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
-/* GET home page. */
+// get signup page
 router.get('/signup', authMiddleware.requireAnon, (req, res, next) => {
   const data = {
     messages: req.flash('error')
@@ -17,6 +17,7 @@ router.get('/signup', authMiddleware.requireAnon, (req, res, next) => {
   res.render('auth/signup', data);
 });
 
+// post for signup form
 router.post('/signup', authMiddleware.requireAnon, formMiddleware.requireFieldsUser, (req, res, next) => {
   const { username, password } = req.body;
   User.findOne({ username })
@@ -26,6 +27,7 @@ router.post('/signup', authMiddleware.requireAnon, formMiddleware.requireFieldsU
         req.flash('error', 'Username is taken');
         return res.redirect('/auth/signup');
       }
+      // password bcrypt
       const salt = bcrypt.genSaltSync(saltRounds);
       const hashedPassword = bcrypt.hashSync(password, salt);
       // create a user
@@ -40,7 +42,7 @@ router.post('/signup', authMiddleware.requireAnon, formMiddleware.requireFieldsU
     })
     .catch(next);
 });
-
+// get login page
 router.get('/login', authMiddleware.requireAnon, (req, res, next) => {
   const data = {
     messages: req.flash('error')
@@ -48,6 +50,7 @@ router.get('/login', authMiddleware.requireAnon, (req, res, next) => {
   res.render('auth/login', data);
 });
 
+// post login form
 router.post('/login', authMiddleware.requireAnon, formMiddleware.requireFieldsUser, (req, res, next) => {
   const { username, password } = req.body;
   User.findOne({ username })
@@ -69,6 +72,7 @@ router.post('/login', authMiddleware.requireAnon, formMiddleware.requireFieldsUs
     .catch(next);
 });
 
+// post logout delete session
 router.post('/logout', authMiddleware.requireUser, (req, res, next) => {
   delete req.session.currentUser;
   res.redirect('/');
