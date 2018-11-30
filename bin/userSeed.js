@@ -1,3 +1,6 @@
+
+require('dotenv').config();
+
 const mongoose = require('mongoose');
 const User = require('../models/user');
 
@@ -5,7 +8,7 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const salt = bcrypt.genSaltSync(saltRounds);
 
-mongoose.connect('mongodb://localhost/gofinds', {
+mongoose.connect(process.env.MONGODB_URI, {
   keepAlive: true,
   useNewUrlParser: true,
   reconnectTries: Number.MAX_VALUE

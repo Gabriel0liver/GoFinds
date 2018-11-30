@@ -1,12 +1,11 @@
+
+require('dotenv').config();
+
 const mongoose = require('mongoose');
 const User = require('../models/user');
 const Post = require('../models/post');
 
-const Schema = mongoose.Schema;
-
-const ObjectId = Schema.Types.ObjectId;
-
-mongoose.connect('mongodb://localhost/gofinds', {
+mongoose.connect(process.env.MONGODB_URI, {
   keepAlive: true,
   useNewUrlParser: true,
   reconnectTries: Number.MAX_VALUE
@@ -42,7 +41,6 @@ User.find()
         usersWithIds[user.username] = user._id;
       }
     });
-    console.log(usersWithIds);
     posts[0].owner = usersWithIds['donald trump'];
     posts[1].owner = usersWithIds['donald trump'];
     posts[2].owner = usersWithIds.camus;
