@@ -20,6 +20,7 @@ body {
   color: #111;
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
+  margin-bottom: 30%
   
 }
 
@@ -78,10 +79,23 @@ p.friends-p{
 }
 p.post-comment{
   font-style: italic;
+  font-size: 0.9em
 }
 a{
   text-decoration: none;
   color: #2F323A;
+}
+
+a.edit-comment{
+  font-size: 0.8em;
+  padding: 2% 10% 2% 10%;
+  border-radius: 45px;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  background-color: #b46ddf;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  width: 45%;
 }
 
 /* ---- layout ---- */
@@ -194,6 +208,10 @@ button.add-image-home{
   border-color: #b46ddf;
 }
 
+button.comment{
+  margin-top: 5%;
+}
+
 .logout-button::-webkit-file-upload-button {
   display: none;
 }
@@ -209,6 +227,8 @@ button.add-image-home{
   padding-top: 10px;
   padding-left: 10px;
   padding-right: 10px;
+  border: none;
+  background: #FAFAFA;
 }
 
 input.image-buton{
@@ -237,6 +257,10 @@ label{
   margin-right: 10px;
 }
 
+label.edit{
+  font-size: 1.2em;
+}
+
 label.new-post-title{
   margin-bottom: 5%;
   font-size: 40px;
@@ -262,7 +286,18 @@ input.title-newpost-input{
 
 form.form-addfriend{
   float: right;
-  width: 30%
+  width: 50%
+}
+
+form.remove-comment{
+  font-size: 0.8em;
+  padding: 2% 10% 2% 10%;
+  border-radius: 45px;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  background-color: #b46ddf;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  width: 40%;
 }
 
 form.logout-form{
@@ -278,9 +313,22 @@ textarea{
   border-radius: 30px;
 }
 
+textarea.edit-text{
+  width: 100%;
+  background: #FAFAFA;
+  border: none;
+  font-size: 0.9em;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  padding: 4%;
+}
+
 textarea.description-area{
   border: none;
-  font-size: 30px;
+  font-size: 0.9em;
+  width: 100%;
+  background: #FAFAFA;
+  border-radius: 20px;
 }
 
 .image-buton::-webkit-file-upload-button{
@@ -390,6 +438,16 @@ img.logout-butt{
     font-family: 'Montserrat', sans-serif;
 }
 
+button.form-style{
+  border: none;
+  background: #b46ddf;
+  color: white;
+}
+
+button.remove-friend{
+  background: white;
+  border: none
+}
 
   img.upload{
     width: 15%;
@@ -537,7 +595,7 @@ div.post-det-desc{
 }
 
 .info-image{
-  width: 90%;
+  width: 100%;
 }
 
 div.input-users{
@@ -659,4 +717,15 @@ div.search-results{
 
 div.search{
   margin-bottom: 10%
+}
+
+div.buttons-post{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5%;
+}
+
+div.edit-container{
+  margin: 0 auto;
+  width: 90%; 
 }
