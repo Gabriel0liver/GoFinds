@@ -30,7 +30,7 @@ const main = () => {
       addFriendForm.setAttribute('method', 'POST');
       addFriendForm.setAttribute('action', '/users/' + user._id + '/add_friend');
       addFriendButton.setAttribute('type', 'submit');
-      addFriendButton.innerText = 'Add as friend';
+      addFriendButton.innerText = 'Follow';
       userLinkElement.innerHTML = user.username;
       userLinkElement.href = '/users/' + user._id;
       usersList.appendChild(userListElement);

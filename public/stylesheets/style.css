@@ -53,7 +53,7 @@ p.sign-in-header{
 
 p.reccom-p{
   line-height: 1.3em;
-  font-size: 0.85em;
+  font-size: 1  em;
   font-weight: 100;
 }
 
@@ -156,10 +156,15 @@ li{
 
 ul.recommendations-ul{
   padding-left: 5%;
-  margin-top: 15%; 
+  margin-top: 50px; 
   line-height: 1.6em;
   font-weight: 600;
   font-size: 1.1em;
+}
+
+ul.recommendations-ul li{
+  font-size: 1.5em;
+    margin: 15px;
 }
 
 li.signlogtext{
@@ -383,6 +388,7 @@ img.logout-butt{
   margin: 0 auto;
   height: 300px;
   position: relative;
+  outline: none;
   
  }
 
@@ -448,9 +454,10 @@ img.logout-butt{
   button.add-friends-but{
     display: flex;
     float: right;
-    font-size: 0.7em;
+    font-size: 0.8em;
     border-radius: 10px;
-    background: #736cf5;
+    background: linear-gradient(to right,#736cf5, #b46ddf);
+    font-weight: bold;
     padding: 3%;
     text-align: center;
     position: relative;
@@ -485,7 +492,9 @@ button.remove-friend{
   }
 
 img.post-det-im{
-  width: 100vw;
+  width: 80%;
+  margin-top: 30px;
+  border-radius: 15px;
 }
 
   img.logo{
@@ -571,7 +580,8 @@ div.container-description{
 
 div.post-det-desc{
   margin: 0 auto;
-  width: 87%
+  width: 80%;
+  text-align: center;
 }
 
 
@@ -619,7 +629,9 @@ div.post-det-desc{
 }
 
 .info-image{
-  width: 100%;
+  width: 80%;
+  margin-top: 30px;
+  border-radius: 15px;
 }
 
 div.input-users{
@@ -752,4 +764,49 @@ div.buttons-post{
 div.edit-container{
   margin: 0 auto;
   width: 90%; 
+}
+
+.not-identified{
+  margin-top: 50%;
+  font-size: 1.5em;
+  font-family: montserrat;
+  text-align: center;
+}
+
+.image-div{
+  text-align: center;
+}
+
+.title{
+  text-align: center;
+  font-size: 2em;
+}
+
+
+#more-button{border-style:none;background:none;font:16px Serif;color:blue;margin: 0 0 10px 0;}
+
+#grow input:checked{color:red;}
+
+#more-button:hover{color:black;}
+
+#grow {
+    -moz-transition: height .5s;
+    -ms-transition: height .5s;
+    -o-transition: height .5s;
+    -webkit-transition: height .5s;
+    transition: height .5s;
+    height: 0;
+    overflow: hidden;
+  }
+
+.text{
+  text-align: left;
+  color: #363636;
+  line-height: 1.8em;
+  text-align: justify;
+}
+
+.create-form{
+  border-bottom: solid grey 1px;
+  padding-bottom: 75px;
 }

@@ -60,7 +60,7 @@ router.get('', (req, res, next) => {
             });
             placesAndScores[landmark] = 0;
             const sortable = [];
-            for (var place in placesAndScores) {
+            for (let place in placesAndScores) {
               sortable.push([place, placesAndScores[place]]);
             }
             sortable.sort((a, b) => {
