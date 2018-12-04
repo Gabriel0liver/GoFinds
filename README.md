@@ -132,6 +132,6 @@ Post Model
 
 [Repository Link](http://github.com)
 
-[Deploy Link](http://heroku.com)
+[Deploy Link](http://gofinds.herokuapp.com)
 
 ### Slides
